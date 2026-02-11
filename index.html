@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>三亚对俄罗斯免签政策</title>
+    <title>三亚对俄罗斯免签政策 | Sanya Visa-Free Policy for Russia</title>
     <style>
         * {
             margin: 0;
@@ -43,6 +43,46 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+        
+        /* 语言选择器样式 */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .lang-btn.active {
+            background: rgba(77, 171, 247, 0.8);
+            border-color: rgba(77, 171, 247, 1);
+            box-shadow: 0 0 15px rgba(77, 171, 247, 0.5);
+        }
+        
+        .lang-btn .flag {
+            font-size: 1.2rem;
         }
         
         /* 页眉样式 */
@@ -317,6 +357,17 @@
             text-decoration: underline;
         }
         
+        /* 语言特定样式 */
+        [data-lang="ru"] {
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+        }
+        
+        [data-lang="ru"] h1,
+        [data-lang="ru"] h2,
+        [data-lang="ru"] h3 {
+            font-weight: 600;
+        }
+        
         /* 动画效果 */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -366,6 +417,18 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
         }
         
         /* 滚动条样式 */
@@ -385,76 +448,100 @@
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(77, 171, 247, 0.8);
         }
+        
+        /* 语言切换动画 */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .fade-in {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
     </style>
 </head>
 <body>
+    <!-- 语言选择器 -->
+    <div class="language-selector">
+        <button class="lang-btn active" data-lang="zh">
+            <span class="flag">🇨🇳</span> 中文
+        </button>
+        <button class="lang-btn" data-lang="en">
+            <span class="flag">🇺🇸</span> English
+        </button>
+        <button class="lang-btn" data-lang="ru">
+            <span class="flag">🇷🇺</span> Русский
+        </button>
+    </div>
+    
     <div class="container">
         <header class="page-header">
-            <h1>三亚对俄罗斯免签政策</h1>
-            <p class="subtitle">为促进中俄旅游交流与合作，海南省对俄罗斯公民实施便利的免签入境政策，为俄罗斯游客提供更便捷的旅游体验</p>
-            <div class="policy-badge">政策有效期：2025年9月15日 - 2026年9月14日</div>
+            <h1 data-i18n="title">三亚对俄罗斯免签政策</h1>
+            <p class="subtitle" data-i18n="subtitle">为促进中俄旅游交流与合作，海南省对俄罗斯公民实施便利的免签入境政策，为俄罗斯游客提供更便捷的旅游体验</p>
+            <div class="policy-badge" data-i18n="policyBadge">政策有效期：2025年9月15日 - 2026年9月14日</div>
         </header>
         
         <div class="main-content">
             <section class="policy-section">
-                <h2>政策核心信息</h2>
+                <h2 data-i18n="policyTitle">政策核心信息</h2>
                 <table class="policy-table">
                     <thead>
                         <tr>
-                            <th>政策要点</th>
-                            <th>具体内容</th>
+                            <th data-i18n="policyPoint">政策要点</th>
+                            <th data-i18n="specificContent">具体内容</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>适用对象</strong></td>
-                            <td>俄罗斯持普通护照的公民</td>
+                            <td><strong data-i18n="applicableObject">适用对象</strong></td>
+                            <td data-i18n="applicableObjectContent">俄罗斯持普通护照的公民</td>
                         </tr>
                         <tr>
-                            <td><strong>政策有效期</strong></td>
-                            <td>2025年9月15日至2026年9月14日（试行阶段）</td>
+                            <td><strong data-i18n="policyValidity">政策有效期</strong></td>
+                            <td data-i18n="policyValidityContent">2025年9月15日至2026年9月14日（试行阶段）</td>
                         </tr>
                         <tr>
-                            <td><strong>可免签事由</strong></td>
-                            <td>旅游、商务、探亲、访问、医疗、会展、体育竞技、过境等（不包括工作、学习）</td>
+                            <td><strong data-i18n="visaFreeReasons">可免签事由</strong></td>
+                            <td data-i18n="visaFreeReasonsContent">旅游、商务、探亲、访问、医疗、会展、体育竞技、过境等（不包括工作、学习）</td>
                         </tr>
                         <tr>
-                            <td><strong>最长停留时间</strong></td>
-                            <td>不超过30天</td>
+                            <td><strong data-i18n="maxStay">最长停留时间</strong></td>
+                            <td data-i18n="maxStayContent">不超过30天</td>
                         </tr>
                         <tr>
-                            <td><strong>入境口岸</strong></td>
-                            <td>海南省所有对外开放的口岸（如三亚凤凰国际机场）</td>
+                            <td><strong data-i18n="entryPorts">入境口岸</strong></td>
+                            <td data-i18n="entryPortsContent">海南省所有对外开放的口岸（如三亚凤凰国际机场）</td>
                         </tr>
                         <tr>
-                            <td><strong>活动范围</strong></td>
-                            <td>仅限于海南省行政区域内</td>
+                            <td><strong data-i18n="activityRange">活动范围</strong></td>
+                            <td data-i18n="activityRangeContent">仅限于海南省行政区域内</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
             
             <section class="policy-section">
-                <h2>政策优势</h2>
+                <h2 data-i18n="policyAdvantages">政策优势</h2>
                 <div style="margin-top: 20px;">
-                    <p style="margin-bottom: 20px; line-height: 1.8;">此项免签政策为俄罗斯游客带来以下便利：</p>
+                    <p style="margin-bottom: 20px; line-height: 1.8;" data-i18n="policyIntro">此项免签政策为俄罗斯游客带来以下便利：</p>
                     
                     <div style="margin-top: 25px;">
                         <div style="display: flex; align-items: center; margin-bottom: 15px;">
                             <div style="width: 12px; height: 12px; background: #4dabf7; border-radius: 50%; margin-right: 15px;"></div>
-                            <p><strong>手续简化：</strong>无需提前申请签证，持有效护照即可入境</p>
+                            <p><strong data-i18n="simplifiedProcedures">手续简化：</strong><span data-i18n="simplifiedProceduresContent">无需提前申请签证，持有效护照即可入境</span></p>
                         </div>
                         <div style="display: flex; align-items: center; margin-bottom: 15px;">
                             <div style="width: 12px; height: 12px; background: #4dabf7; border-radius: 50%; margin-right: 15px;"></div>
-                            <p><strong>时间灵活：</strong>最长30天停留时间，满足多种旅游需求</p>
+                            <p><strong data-i18n="flexibleTime">时间灵活：</strong><span data-i18n="flexibleTimeContent">最长30天停留时间，满足多种旅游需求</span></p>
                         </div>
                         <div style="display: flex; align-items: center; margin-bottom: 15px;">
                             <div style="width: 12px; height: 12px; background: #4dabf7; border-radius: 50%; margin-right: 15px;"></div>
-                            <p><strong>适用范围广：</strong>旅游、商务、探亲、医疗等多种目的均可适用</p>
+                            <p><strong data-i18n="wideApplicability">适用范围广：</strong><span data-i18n="wideApplicabilityContent">旅游、商务、探亲、医疗等多种目的均可适用</span></p>
                         </div>
                         <div style="display: flex; align-items: center;">
                             <div style="width: 12px; height: 12px; background: #4dabf7; border-radius: 50%; margin-right: 15px;"></div>
-                            <p><strong>服务完善：</strong>三亚已建立完善的俄语服务和旅游接待体系</p>
+                            <p><strong data-i18n="completeServices">服务完善：</strong><span data-i18n="completeServicesContent">三亚已建立完善的俄语服务和旅游接待体系</span></p>
                         </div>
                     </div>
                 </div>
@@ -462,108 +549,324 @@
         </div>
         
         <section class="tips-section policy-section">
-            <h2>出行实用指南</h2>
+            <h2 data-i18n="travelGuide">出行实用指南</h2>
             <div class="tips-grid">
                 <div class="tip-card">
-                    <h3><span class="tip-icon">🛂</span>入境流程</h3>
-                    <p>俄罗斯公民持有效普通护照，经边检机关查验准许后即可免签入境，无需提前申请签证或预申报。建议提前准备好返程机票和酒店预订信息。</p>
+                    <h3><span class="tip-icon">🛂</span> <span data-i18n="entryProcessTitle">入境流程</span></h3>
+                    <p data-i18n="entryProcessContent">俄罗斯公民持有效普通护照，经边检机关查验准许后即可免签入境，无需提前申请签证或预申报。建议提前准备好返程机票和酒店预订信息。</p>
                 </div>
                 <div class="tip-card">
-                    <h3><span class="tip-icon">🗣️</span>语言服务</h3>
-                    <p>三亚在机场、主要景区、商圈增设俄语标识，许多酒店、餐厅和购物中心配备俄语服务人员，有效解决语言沟通障碍。</p>
+                    <h3><span class="tip-icon">🗣️</span> <span data-i18n="languageServiceTitle">语言服务</span></h3>
+                    <p data-i18n="languageServiceContent">三亚在机场、主要景区、商圈增设俄语标识，许多酒店、餐厅和购物中心配备俄语服务人员，有效解决语言沟通障碍。</p>
                 </div>
                 <div class="tip-card">
-                    <h3><span class="tip-icon">💳</span>支付便利</h3>
-                    <p>三亚积极推进支付便利化改革，拓展外卡受理、移动支付和现金兑换服务，多数商户支持Visa、MasterCard等国际信用卡。</p>
+                    <h3><span class="tip-icon">💳</span> <span data-i18n="paymentTitle">支付便利</span></h3>
+                    <p data-i18n="paymentContent">三亚积极推进支付便利化改革，拓展外卡受理、移动支付和现金兑换服务，多数商户支持Visa、MasterCard等国际信用卡。</p>
                 </div>
                 <div class="tip-card">
-                    <h3><span class="tip-icon">✈️</span>交通信息</h3>
-                    <p>三亚已开通至俄罗斯莫斯科、圣彼得堡、克拉斯诺亚尔斯克等航线，每月执飞往返航班64架次，为游客提供便利的空中交通。</p>
+                    <h3><span class="tip-icon">✈️</span> <span data-i18n="transportationTitle">交通信息</span></h3>
+                    <p data-i18n="transportationContent">三亚已开通至俄罗斯莫斯科、圣彼得堡、克拉斯诺亚尔斯克等航线，每月执飞往返航班64架次，为游客提供便利的空中交通。</p>
                 </div>
                 <div class="tip-card">
-                    <h3><span class="tip-icon">🏖️</span>旅游推荐</h3>
-                    <p>俄罗斯游客青睐大东海、亚龙湾、鹿回头风景区、天涯海角等景点。可体验热带雨林探险、滨海度假、康养理疗等多样化旅游产品。</p>
+                    <h3><span class="tip-icon">🏖️</span> <span data-i18n="tourismRecommendationTitle">旅游推荐</span></h3>
+                    <p data-i18n="tourismRecommendationContent">俄罗斯游客青睐大东海、亚龙湾、鹿回头风景区、天涯海角等景点。可体验热带雨林探险、滨海度假、康养理疗等多样化旅游产品。</p>
                 </div>
                 <div class="tip-card">
-                    <h3><span class="tip-icon">🌡️</span>气候建议</h3>
-                    <p>三亚属热带海洋性气候，年平均气温25-28°C，建议携带防晒用品、轻便夏装、泳衣和雨具。11月至次年4月为最佳旅游季节。</p>
+                    <h3><span class="tip-icon">🌡️</span> <span data-i18n="climateAdviceTitle">气候建议</span></h3>
+                    <p data-i18n="climateAdviceContent">三亚属热带海洋性气候，年平均气温25-28°C，建议携带防晒用品、轻便夏装、泳衣和雨具。11月至次年4月为最佳旅游季节。</p>
                 </div>
             </div>
         </section>
         
         <section class="policy-section">
-            <h2>政策成效与数据</h2>
-            <p style="margin-bottom: 30px;">自免签政策实施以来，极大简化了俄罗斯游客入境程序，降低了时间和费用成本，进一步释放了俄罗斯游客的来琼意愿。三亚已形成完善的俄语旅游接待体系，为俄罗斯游客提供全方位的服务保障。</p>
+            <h2 data-i18n="policyEffectiveness">政策成效与数据</h2>
+            <p style="margin-bottom: 30px;" data-i18n="policyEffectivenessContent">自免签政策实施以来，极大简化了俄罗斯游客入境程序，降低了时间和费用成本，进一步释放了俄罗斯游客的来琼意愿。三亚已形成完善的俄语旅游接待体系，为俄罗斯游客提供全方位的服务保障。</p>
             
             <div class="stats-container">
                 <div class="stat-card">
                     <div class="stat-value">51%</div>
-                    <div class="stat-label">俄罗斯游客占三亚入境游客比例</div>
+                    <div class="stat-label" data-i18n="stat1">俄罗斯游客占三亚入境游客比例</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value">64</div>
-                    <div class="stat-label">每月往返航班架次</div>
+                    <div class="stat-label" data-i18n="stat2">每月往返航班架次</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value">3.5万+</div>
-                    <div class="stat-label">2024年俄罗斯旅客入境人次</div>
+                    <div class="stat-label" data-i18n="stat3">2024年俄罗斯旅客入境人次</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value">30天</div>
-                    <div class="stat-label">免签最长停留时间</div>
+                    <div class="stat-label" data-i18n="stat4">免签最长停留时间</div>
                 </div>
             </div>
         </section>
         
         <footer>
             <div class="footer-content">
-                <p>三亚市人民政府 • 三亚市旅游和文化广电体育局</p>
-                <p>政策咨询电话：+86-898-12345 • 官方网站：www.sanya.gov.cn</p>
+                <p data-i18n="footerOrg">三亚市人民政府 • 三亚市旅游和文化广电体育局</p>
+                <p data-i18n="footerContact">政策咨询电话：+86-898-12345 • 官方网站：www.sanya.gov.cn</p>
                 <div class="footer-links">
-                    <a href="#" class="footer-link">免签政策详情</a>
-                    <a href="#" class="footer-link">入境指南</a>
-                    <a href="#" class="footer-link">旅游推荐</a>
-                    <a href="#" class="footer-link">联系我们</a>
+                    <a href="#" class="footer-link" data-i18n="footerLink1">免签政策详情</a>
+                    <a href="#" class="footer-link" data-i18n="footerLink2">入境指南</a>
+                    <a href="#" class="footer-link" data-i18n="footerLink3">旅游推荐</a>
+                    <a href="#" class="footer-link" data-i18n="footerLink4">联系我们</a>
                 </div>
-                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">本信息仅供参考，具体政策以官方最新发布为准 | 更新日期：2025年9月</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;" data-i18n="footerNote">本信息仅供参考，具体政策以官方最新发布为准 | 更新日期：2025年9月</p>
             </div>
         </footer>
     </div>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 为所有内容区域添加动画
-            const contentSections = document.querySelectorAll('.policy-section, .page-header');
+        // 多语言文本数据
+        const translations = {
+            zh: {
+                title: "三亚对俄罗斯免签政策",
+                subtitle: "为促进中俄旅游交流与合作，海南省对俄罗斯公民实施便利的免签入境政策，为俄罗斯游客提供更便捷的旅游体验",
+                policyBadge: "政策有效期：2025年9月15日 - 2026年9月14日",
+                policyTitle: "政策核心信息",
+                policyPoint: "政策要点",
+                specificContent: "具体内容",
+                applicableObject: "适用对象",
+                applicableObjectContent: "俄罗斯持普通护照的公民",
+                policyValidity: "政策有效期",
+                policyValidityContent: "2025年9月15日至2026年9月14日（试行阶段）",
+                visaFreeReasons: "可免签事由",
+                visaFreeReasonsContent: "旅游、商务、探亲、访问、医疗、会展、体育竞技、过境等（不包括工作、学习）",
+                maxStay: "最长停留时间",
+                maxStayContent: "不超过30天",
+                entryPorts: "入境口岸",
+                entryPortsContent: "海南省所有对外开放的口岸（如三亚凤凰国际机场）",
+                activityRange: "活动范围",
+                activityRangeContent: "仅限于海南省行政区域内",
+                policyAdvantages: "政策优势",
+                policyIntro: "此项免签政策为俄罗斯游客带来以下便利：",
+                simplifiedProcedures: "手续简化：",
+                simplifiedProceduresContent: "无需提前申请签证，持有效护照即可入境",
+                flexibleTime: "时间灵活：",
+                flexibleTimeContent: "最长30天停留时间，满足多种旅游需求",
+                wideApplicability: "适用范围广：",
+                wideApplicabilityContent: "旅游、商务、探亲、医疗等多种目的均可适用",
+                completeServices: "服务完善：",
+                completeServicesContent: "三亚已建立完善的俄语服务和旅游接待体系",
+                travelGuide: "出行实用指南",
+                entryProcessTitle: "入境流程",
+                entryProcessContent: "俄罗斯公民持有效普通护照，经边检机关查验准许后即可免签入境，无需提前申请签证或预申报。建议提前准备好返程机票和酒店预订信息。",
+                languageServiceTitle: "语言服务",
+                languageServiceContent: "三亚在机场、主要景区、商圈增设俄语标识，许多酒店、餐厅和购物中心配备俄语服务人员，有效解决语言沟通障碍。",
+                paymentTitle: "支付便利",
+                paymentContent: "三亚积极推进支付便利化改革，拓展外卡受理、移动支付和现金兑换服务，多数商户支持Visa、MasterCard等国际信用卡。",
+                transportationTitle: "交通信息",
+                transportationContent: "三亚已开通至俄罗斯莫斯科、圣彼得堡、克拉斯诺亚尔斯克等航线，每月执飞往返航班64架次，为游客提供便利的空中交通。",
+                tourismRecommendationTitle: "旅游推荐",
+                tourismRecommendationContent: "俄罗斯游客青睐大东海、亚龙湾、鹿回头风景区、天涯海角等景点。可体验热带雨林探险、滨海度假、康养理疗等多样化旅游产品。",
+                climateAdviceTitle: "气候建议",
+                climateAdviceContent: "三亚属热带海洋性气候，年平均气温25-28°C，建议携带防晒用品、轻便夏装、泳衣和雨具。11月至次年4月为最佳旅游季节。",
+                policyEffectiveness: "政策成效与数据",
+                policyEffectivenessContent: "自免签政策实施以来，极大简化了俄罗斯游客入境程序，降低了时间和费用成本，进一步释放了俄罗斯游客的来琼意愿。三亚已形成完善的俄语旅游接待体系，为俄罗斯游客提供全方位的服务保障。",
+                stat1: "俄罗斯游客占三亚入境游客比例",
+                stat2: "每月往返航班架次",
+                stat3: "2024年俄罗斯旅客入境人次",
+                stat4: "免签最长停留时间",
+                footerOrg: "三亚市人民政府 • 三亚市旅游和文化广电体育局",
+                footerContact: "政策咨询电话：+86-898-12345 • 官方网站：www.sanya.gov.cn",
+                footerLink1: "免签政策详情",
+                footerLink2: "入境指南",
+                footerLink3: "旅游推荐",
+                footerLink4: "联系我们",
+                footerNote: "本信息仅供参考，具体政策以官方最新发布为准 | 更新日期：2025年9月"
+            },
+            en: {
+                title: "Sanya Visa-Free Policy for Russia",
+                subtitle: "To promote tourism exchanges and cooperation between China and Russia, Hainan Province has implemented a convenient visa-free entry policy for Russian citizens, providing Russian tourists with a more convenient travel experience",
+                policyBadge: "Policy Validity: September 15, 2025 - September 14, 2026",
+                policyTitle: "Policy Core Information",
+                policyPoint: "Policy Points",
+                specificContent: "Specific Content",
+                applicableObject: "Applicable Objects",
+                applicableObjectContent: "Russian citizens holding ordinary passports",
+                policyValidity: "Policy Validity Period",
+                policyValidityContent: "September 15, 2025 to September 14, 2026 (trial phase)",
+                visaFreeReasons: "Visa-Free Purposes",
+                visaFreeReasonsContent: "Tourism, business, visiting relatives, visits, medical treatment, exhibitions, sports competitions, transit, etc. (excluding work and study)",
+                maxStay: "Maximum Stay Duration",
+                maxStayContent: "No more than 30 days",
+                entryPorts: "Entry Ports",
+                entryPortsContent: "All open ports in Hainan Province (e.g., Sanya Phoenix International Airport)",
+                activityRange: "Activity Range",
+                activityRangeContent: "Limited to the administrative area of Hainan Province",
+                policyAdvantages: "Policy Advantages",
+                policyIntro: "This visa-free policy brings the following conveniences to Russian tourists:",
+                simplifiedProcedures: "Simplified Procedures: ",
+                simplifiedProceduresContent: "No need to apply for a visa in advance, entry with a valid passport",
+                flexibleTime: "Flexible Time: ",
+                flexibleTimeContent: "Up to 30 days stay, meeting various travel needs",
+                wideApplicability: "Wide Applicability: ",
+                wideApplicabilityContent: "Applicable for various purposes such as tourism, business, visiting relatives, medical treatment, etc.",
+                completeServices: "Complete Services: ",
+                completeServicesContent: "Sanya has established a comprehensive Russian-language service and tourism reception system",
+                travelGuide: "Practical Travel Guide",
+                entryProcessTitle: "Entry Process",
+                entryProcessContent: "Russian citizens can enter visa-free with a valid ordinary passport after inspection and approval by border inspection authorities, without the need to apply for a visa or pre-declaration in advance. It is recommended to prepare return flight tickets and hotel reservation information in advance.",
+                languageServiceTitle: "Language Services",
+                languageServiceContent: "Sanya has added Russian signage at airports, major scenic spots, and commercial districts. Many hotels, restaurants, and shopping centers are equipped with Russian-speaking service personnel, effectively solving language communication barriers.",
+                paymentTitle: "Payment Convenience",
+                paymentContent: "Sanya is actively promoting payment facilitation reforms, expanding foreign card acceptance, mobile payment, and cash exchange services. Most merchants support international credit cards such as Visa and MasterCard.",
+                transportationTitle: "Transportation Information",
+                transportationContent: "Sanya has opened routes to Moscow, St. Petersburg, Krasnoyarsk and other Russian cities, operating 64 round-trip flights per month, providing convenient air transportation for tourists.",
+                tourismRecommendationTitle: "Tourism Recommendations",
+                tourismRecommendationContent: "Russian tourists favor attractions such as Dadonghai, Yalong Bay, Luhuitou Scenic Area, and Tianya Haijiao. They can experience diversified tourism products such as tropical rainforest adventure, coastal resort vacations, and health rehabilitation therapy.",
+                climateAdviceTitle: "Climate Advice",
+                climateAdviceContent: "Sanya has a tropical marine climate with an average annual temperature of 25-28°C. It is recommended to bring sunscreen, light summer clothes, swimwear, and rain gear. The best travel season is from November to April of the following year.",
+                policyEffectiveness: "Policy Effectiveness and Data",
+                policyEffectivenessContent: "Since the implementation of the visa-free policy, the entry procedures for Russian tourists have been greatly simplified, reducing time and cost, and further unleashing the willingness of Russian tourists to visit Hainan. Sanya has formed a complete Russian-language tourism reception system, providing comprehensive service guarantees for Russian tourists.",
+                stat1: "Proportion of Russian tourists among Sanya's inbound tourists",
+                stat2: "Monthly round-trip flights",
+                stat3: "Number of Russian tourist arrivals in 2024",
+                stat4: "Maximum visa-free stay duration",
+                footerOrg: "Sanya Municipal People's Government • Sanya Tourism, Culture, Radio, Television and Sports Bureau",
+                footerContact: "Policy Consultation: +86-898-12345 • Official Website: www.sanya.gov.cn",
+                footerLink1: "Visa-Free Policy Details",
+                footerLink2: "Entry Guide",
+                footerLink3: "Tourism Recommendations",
+                footerLink4: "Contact Us",
+                footerNote: "This information is for reference only. Specific policies are subject to the latest official release | Updated: September 2025"
+            },
+            ru: {
+                title: "Безвизовый режим Санья для России",
+                subtitle: "Для содействия туристическому обмену и сотрудничеству между Китаем и Россией провинция Хайнань внедрила удобную безвизовую политику въезда для российских граждан, предоставляя российским туристам более удобный туристический опыт",
+                policyBadge: "Срок действия политики: 15 сентября 2025 - 14 сентября 2026",
+                policyTitle: "Основная информация о политике",
+                policyPoint: "Пункты политики",
+                specificContent: "Конкретное содержание",
+                applicableObject: "Применимые объекты",
+                applicableObjectContent: "Российские граждане, имеющие обычные паспорта",
+                policyValidity: "Срок действия политики",
+                policyValidityContent: "С 15 сентября 2025 года по 14 сентября 2026 года (пилотный этап)",
+                visaFreeReasons: "Цели безвизового въезда",
+                visaFreeReasonsContent: "Туризм, бизнес, посещение родственников, визиты, медицинское лечение, выставки, спортивные соревнования, транзит и т.д. (исключая работу и учебу)",
+                maxStay: "Максимальный срок пребывания",
+                maxStayContent: "Не более 30 дней",
+                entryPorts: "Пункты въезда",
+                entryPortsContent: "Все открытые порты провинции Хайнань (например, международный аэропорт Санья Феникс)",
+                activityRange: "Зона активности",
+                activityRangeContent: "Ограничена административной территорией провинции Хайнань",
+                policyAdvantages: "Преимущества политики",
+                policyIntro: "Эта безвизовая политика предоставляет российским туристам следующие удобства:",
+                simplifiedProcedures: "Упрощенные процедуры: ",
+                simplifiedProceduresContent: "Нет необходимости заранее оформлять визу, въезд по действительному паспорту",
+                flexibleTime: "Гибкое время: ",
+                flexibleTimeContent: "Пребывание до 30 дней, удовлетворяющее различные туристические потребности",
+                wideApplicability: "Широкая применимость: ",
+                wideApplicabilityContent: "Применима для различных целей, таких как туризм, бизнес, посещение родственников, медицинское лечение и т.д.",
+                completeServices: "Полный спектр услуг: ",
+                completeServicesContent: "В Санья создана комплексная система обслуживания на русском языке и приема туристов",
+                travelGuide: "Практическое руководство для путешественников",
+                entryProcessTitle: "Процесс въезда",
+                entryProcessContent: "Российские граждане могут въехать без визы по действительному обычному паспорту после проверки и одобрения пограничными органами, без необходимости предварительного оформления визы или предварительной декларации. Рекомендуется заранее подготовить обратные авиабилеты и информацию о бронировании отеля.",
+                languageServiceTitle: "Языковые услуги",
+                languageServiceContent: "В Санья добавлены русскоязычные указатели в аэропортах, на основных туристических объектах и в коммерческих районах. Многие отели, рестораны и торговые центры укомплектованы русскоговорящим обслуживающим персоналом, что эффективно решает проблемы языкового общения.",
+                paymentTitle: "Удобство оплаты",
+                paymentContent: "Санья активно продвигает реформы по облегчению оплаты, расширяя прием иностранных карт, мобильные платежи и услуги обмена наличных. Большинство торговых точек поддерживают международные кредитные карты, такие как Visa и MasterCard.",
+                transportationTitle: "Транспортная информация",
+                transportationContent: "Санья открыла рейсы в Москву, Санкт-Петербург, Красноярск и другие российские города, осуществляя 64 рейса в месяц в обе стороны, обеспечивая удобные воздушные перевозки для туристов.",
+                tourismRecommendationTitle: "Туристические рекомендации",
+                tourismRecommendationContent: "Российские туристы предпочитают такие достопримечательности, как Дадунхай, Ялунвань, живописный район Лухуйтоу и Тянья Хайцзяо. Они могут испытать разнообразные туристические продукты, такие как приключения в тропическом лесу, прибрежный отдых и оздоровительную терапию.",
+                climateAdviceTitle: "Климатические рекомендации",
+                climateAdviceContent: "В Санья тропический морской климат со средней годовой температурой 25-28°C. Рекомендуется взять с собой солнцезащитные средства, легкую летнюю одежду, купальники и дождевики. Лучший сезон для путешествий - с ноября по апрель следующего года.",
+                policyEffectiveness: "Эффективность политики и данные",
+                policyEffectivenessContent: "С момента внедрения безвизовой политики процедуры въезда для российских туристов были значительно упрощены, что снизило временные и финансовые затраты и еще больше повысило желание российских туристов посетить Хайнань. В Санья создана комплексная система приема русскоязычных туристов, обеспечивающая всесторонние сервисные гарантии для российских туристов.",
+                stat1: "Доля российских туристов среди въездных туристов Санья",
+                stat2: "Ежемесячное количество рейсов туда и обратно",
+                stat3: "Количество прибытий российских туристов в 2024 году",
+                stat4: "Максимальный срок безвизового пребывания",
+                footerOrg: "Народное правительство города Санья • Управление туризма, культуры, радио, телевидения и спорта города Санья",
+                footerContact: "Консультации по политике: +86-898-12345 • Официальный сайт: www.sanya.gov.cn",
+                footerLink1: "Подробности безвизовой политики",
+                footerLink2: "Руководство по въезду",
+                footerLink3: "Туристические рекомендации",
+                footerLink4: "Связаться с нами",
+                footerNote: "Эта информация предоставляется только для справки. Конкретная политика регулируется последним официальным релизом | Обновлено: сентябрь 2025"
+            }
+        };
+
+        // 当前语言
+        let currentLang = 'zh';
+        
+        // 保存用户语言选择到本地存储
+        function saveLanguagePreference(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // 从本地存储获取用户语言选择
+        function getSavedLanguagePreference() {
+            return localStorage.getItem('preferredLanguage') || 'zh';
+        }
+        
+        // 检测浏览器语言
+        function detectBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ru')) {
+                return 'ru';
+            } else if (browserLang.startsWith('en')) {
+                return 'en';
+            } else {
+                return 'zh';
+            }
+        }
+        
+        // 设置语言
+        function setLanguage(lang) {
+            // 更新当前语言
+            currentLang = lang;
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
+            // 保存用户选择
+            saveLanguagePreference(lang);
+            
+            // 更新按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // 更新页面语言属性
+            document.documentElement.setAttribute('lang', lang);
+            document.documentElement.setAttribute('data-lang', lang);
+            
+            // 添加淡出效果
+            document.body.classList.add('fade-out');
+            
+            // 短暂延迟后更新文本
+            setTimeout(() => {
+                // 更新所有带有data-i18n属性的元素
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.textContent = translations[lang][key];
                     }
                 });
-            }, { threshold: 0.1 });
-            
-            contentSections.forEach(section => {
-                section.style.opacity = 0;
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(section);
-            });
-            
-            // 为卡片添加悬停效果
-            const cards = document.querySelectorAll('.tip-card, .stat-card');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.zIndex = 10;
-                });
                 
-                card.addEventListener('mouseleave', function() {
-                    this.style.zIndex = 1;
-                });
-            });
-            
-        const statValues = document.querySelectorAll('.stat-value');
+                // 更新页面标题
+                document.title = lang === 'zh' ? '三亚对俄罗斯免签政策' : 
+                                lang === 'en' ? 'Sanya Visa-Free Policy for Russia' : 
+                                'Безвизовый режим Санья для России';
+                
+                // 移除淡出效果，添加淡入效果
+                document.body.classList.remove('fade-out');
+                document.body.classList.add('fade-in');
+                
+                // 移除淡入效果
+                setTimeout(() => {
+                    document.body.classList.remove('fade-in');
+                }, 500);
+            }, 300);
+        }
+        
+        // 数字动画效果
+        function animateStats() {
+            const statValues = document.querySelectorAll('.stat-value');
             statValues.forEach(stat => {
                 const originalText = stat.textContent;
                 
@@ -605,8 +908,60 @@
                         }, 16);
                     }
                 }
-                // 其他情况（如“3.5万+”、“30天”）不做动画，保持原样
             });
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为所有内容区域添加动画
+            const contentSections = document.querySelectorAll('.policy-section, .page-header');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            contentSections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+            
+            // 为卡片添加悬停效果
+            const cards = document.querySelectorAll('.tip-card, .stat-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = 10;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = 1;
+                });
+            });
+            
+            // 设置语言选择器事件监听
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+            
+            // 初始化语言
+            const savedLang = getSavedLanguagePreference();
+            const browserLang = detectBrowserLanguage();
+            
+            // 优先使用保存的语言，否则使用浏览器检测的语言
+            const initLang = savedLang || browserLang;
+            setLanguage(initLang);
+            
+            // 数字动画
+            animateStats();
         });
     </script>
 </body>
